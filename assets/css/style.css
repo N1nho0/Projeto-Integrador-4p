@@ -1,0 +1,45 @@
+nav{
+    background-color: #b77844;
+    color: white;
+}
+.logo-img{
+    width: 50px;
+}
+/* Banner */
+.banner {
+    background-color: #4da6ff;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Categorias */
+.categoria {
+    background-color: #a8d0e6;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px;
+    text-align: center;
+}
+
+/* Cartões de Produto */
+.card-produto {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.img-placeholder {
+    background-color: #ccc;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
