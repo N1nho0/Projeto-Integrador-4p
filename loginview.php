@@ -1,28 +1,52 @@
-<div class="container mt-5 d-flex justify-content-center">
-    <form id="form-login" action="" method="">
-        <div class="card shadow p-4" style="width: 22rem;">
-            <div class="card-top text-center">
-                <img class="img-fluid rounded-circle mb-3" src="img/user-compressed.png" alt="Imagem do usuário" style="width: 100px;">
-                <h2 class="title h4">Painel de Controle</h2>
-                <p>Entre para Gerenciar seu Negócio</p>
+<?php
+/*
+ *  Login
+ */
+
+require_once "lib/Funcoes.php";
+?>
+
+<section class="section-margin">
+    
+    <div class="container">
+        
+        <div class="section-intro mb-75px">
+            <h4 class="intro-title">Área restrita</h4>
+        </div>   
+        
+        <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+            <form class="form-contact contact_form" action="login.php" method="post" id="contactForm" novalidate="novalidate">
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <h4 class="intro-title">Acesso</h4>
+                </div>        
+                
+                <div class="col-sm-12">
+                <div class="form-group">
+                    <input class="form-control" name="email" id="email" 
+                        type="text" 
+                        placeholder="Informe o seu Email"
+                        required>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <input class="form-control" name="senha" id="senha" 
+                            type="password" placeholder="Sua senha" required>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Digite seu email" required>
+
+            <?= Funcoes::mensagem() ?>
+
+            <div class="form-group mt-3">
+                <button type="submit" class="button button-contactForm">Acessar</button>
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Senha</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Digite sua senha" required>
-            </div>
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" id="rememberLogin">
-                <label class="form-check-label" for="rememberLogin">
-                    Lembrar Login
-                </label>
-            </div>
-            <div class="d-grid">
-                <button type="submit" class="btn btn-primary"><strong>Entrar</strong></button>
-            </div>
+            </form>
+
         </div>
-    </form>
-</div>
+
+    </div>
+</section>

@@ -7,7 +7,7 @@ nav{
 }
 /* Banner */
 .banner {
-    background-color: #4da6ff;
+
     height: 200px;
     border-radius: 10px;
     display: flex;
@@ -19,27 +19,20 @@ nav{
 }
 
 /* Categorias */
-.categoria {
-    background-color: #a8d0e6;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-weight: bold;
-    color: #333;
-    margin: 10px;
+.card-categoria {
+    border-width: 0px !important;
+    border-radius: 30px !important;
+    padding: 0px !important;
+    margin: 0px !important;
     text-align: center;
 }
 
+.card-produto{
+    height: 100px !important;
+}
 /* Cartões de Produto */
-.card-produto {
-    background-color: #e0e0e0;
-    border-radius: 10px;
+.img-produto {
+    width: 300px !important;
     padding: 20px;
     text-align: center;
-}
-
-.img-placeholder {
-    background-color: #ccc;
-    height: 100px;
-    border-radius: 10px;
-    margin-bottom: 15px;
 }

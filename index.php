@@ -12,7 +12,7 @@ require_once "lib/funcoes.php"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Market - Home</title>
+    <title>Catalogo - Home</title>
 
     <link rel="icon" href="assets/img/Favicon.png" type="image/png">
 
@@ -21,6 +21,9 @@ require_once "lib/funcoes.php"
     <link rel="stylesheet" href="assets/vendors/themify-icons/themify-icons.css">
 
     <script src="assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/jquery-1.11.3.min.js"></script>
+    <script src="assets/js/jqueryMask.js"></script>    
 
 </head>
 
@@ -63,11 +66,10 @@ require_once "lib/funcoes.php"
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="logout.php">Sair</a></li>
 
-                                    <?php if ($_SESSION['userNivel'] == 1): ?>
-                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaCatalogo">Catalogo</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaSobrenosa">Sobre nós</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaFaleConosco">Fale Conosco</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaCargo">Cargo</a></li>
+                                    <?php if ($_SESSION['tipo_Usuario'] == 1): ?>
+                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaCatalogo">Categorias</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaCargo">Cargos</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaProduto">Produtos</a></li>
                                         <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaUsuario">Usuários</a></li>
                                     <?php endif; ?>
 
@@ -91,7 +93,7 @@ require_once "lib/funcoes.php"
         </div>
 
         <?php
-
+        
         $pagina = 'home';
 
         if (isset($_GET['pagina'])) {
