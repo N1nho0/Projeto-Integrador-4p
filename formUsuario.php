@@ -10,9 +10,9 @@ $dados = [];
 
 if ($_GET['acao'] != 'insert') {
     $dados = $db->dbSelect(
-        "SELECT * FROM usuario WHERE id = ?",
+        "SELECT * FROM usuario WHERE idUsuario = ?",
         'first',
-        [$_GET['id']]
+        [$_GET['idUsuario']]
     );
 }
 
@@ -34,7 +34,7 @@ if ($_GET['acao'] != 'insert') {
 
     <form class="g-3" action="<?= $_GET['acao'] ?>Usuario.php" method="POST">
 
-        <input type="hidden" name="id" id="id" value="<?= Funcoes::setValue($dados, "id") ?>">
+        <input type="hidden" name="idUsuario" id="idUsuario" value="<?= Funcoes::setValue($dados, "idUsuario") ?>">
 
         <div class="row">
 
@@ -54,12 +54,12 @@ if ($_GET['acao'] != 'insert') {
                 <label for="nivel" class="form-label">Nível</label>
                 <select 
                     class="form-control" 
-                    id="nivel" 
-                    name="nivel"
+                    id="tipoUsuario" 
+                    name="tipoUsuario"
                     required>
-                        <option value=""  <?= Funcoes::setValue($dados, 'nivel') == ""  ? 'selected' : '' ?>>...</option>
-                        <option value="1" <?= Funcoes::setValue($dados, 'nivel') == "1" ? 'selected' : '' ?>>Administrador</option>
-                        <option value="2" <?= Funcoes::setValue($dados, 'nivel') == "2" ? 'selected' : '' ?>>Usuário</option>
+                        <option value=""  <?= Funcoes::setValue($dados, 'tipoUsuario') == ""  ? 'selected' : '' ?>>...</option>
+                        <option value="1" <?= Funcoes::setValue($dados, 'tipoUsuario') == "1" ? 'selected' : '' ?>>Administrador</option>
+                        <option value="2" <?= Funcoes::setValue($dados, 'tipoUsuario') == "2" ? 'selected' : '' ?>>Usuário</option>
                 </select>
             </div>
 

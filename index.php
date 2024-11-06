@@ -12,24 +12,37 @@ require_once "lib/funcoes.php"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Catalogo - Home</title>
+    <title>Prato Bom - Home</title>
 
-    <link rel="icon" href="assets/img/Favicon.png" type="image/png">
+    <link rel="icon" href="assets/img/Fevicon.png" type="image/png">
 
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendors/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="assets/vendors/themify-icons/themify-icons.">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/vendors/Magnific-Popup/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style_fasm.css">
+    <link href="utilities/DataTables/datatables.min.css" rel="stylesheet" type="text/css" />
 
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
     <script src="assets/js/jquery-1.11.3.min.js"></script>
-    <script src="assets/js/jqueryMask.js"></script>    
+    <script src="assets/js/jqueryMask.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendors/nice-select/jquery.nice-select.min.js"></script>
+    <script src="assets/vendors/Magnific-Popup/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/mail-script.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script src="utilities/DataTables/datatables.min.js" type="text/javascript"></script>
 
 </head>
 
+
 <body>
 
-    <header>
+    <header class="header_area">
         <nav class="custom-bg navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php"><img class="logo-img" src="assets/img/favicon.png" alt="Logotipo"></a>
@@ -66,14 +79,13 @@ require_once "lib/funcoes.php"
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="logout.php">Sair</a></li>
 
-                                    <?php if ($_SESSION['tipo_Usuario'] == 1): ?>
-                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaCatalogo">Categorias</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaCargo">Cargos</a></li>
+                                    <?php if ($_SESSION['tipoUsuario'] == 1): ?>
+                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaCategoria">Categorias</a></li>
                                         <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaProduto">Produtos</a></li>
                                         <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaUsuario">Usuários</a></li>
                                     <?php endif; ?>
 
-                                    <li class="nav-item"><a class="nav-link" href="#">Trocar a Senha</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="index.php?pagina=trocarSenhaView">Trocar a Senha</a></li>
                                 </ul>
                             </li>
                         <?php
@@ -93,7 +105,7 @@ require_once "lib/funcoes.php"
         </div>
 
         <?php
-        
+
         $pagina = 'home';
 
         if (isset($_GET['pagina'])) {

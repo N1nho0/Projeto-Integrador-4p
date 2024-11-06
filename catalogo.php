@@ -1,39 +1,15 @@
-<?php
-require_once "lib/funcoes.php"
-?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Market - Home</title>
-
-    <link rel="icon" href="assets/img/Favicon.png" type="image/png">
-
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/vendors/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendors/themify-icons/themify-icons.css">
-
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-</head>
-
-<body>
     <div class="container my-5">
 
         <!-- Banner -->
         <div class="banner">
-           <img src="#" alt="">
+            <img src="#" alt="">
         </div>
 
         <!-- Seção de Categorias -->
         <div class="cat row text-center">
             <div class="col-3">
                 <div class="card card-categoria">
-                    <a href=""><img src="assets/img/frutas.jpg" class="card-categoria card-img-top" alt="..."></a> 
+                    <a href=""><img src="assets/img/frutas.jpg" class="card-categoria card-img-top" alt="..."></a>
                 </div>
             </div>
             <div class="col-3">
@@ -94,6 +70,3 @@ require_once "lib/funcoes.php"
             </div>
         </div>
     </div>
-</body>
-
-</html>

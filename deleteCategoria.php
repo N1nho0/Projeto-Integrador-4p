@@ -12,9 +12,9 @@ if (isset($_POST['descricao'])) {
 
     try {
         $result = $db->dbDelete("DELETE FROM categoria
-                                WHERE id = ?"
+                                WHERE idCategoria = ?"
                                 , [
-                                    $_POST['id']
+                                    $_POST['idCategoria']
                                 ]);
         
         if ($result > 0) {      // sucesso

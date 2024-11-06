@@ -11,13 +11,13 @@ if (isset($_POST['descricao'])) {
     $db = new Database();
 
     try {
-        $result = $db->dbUpdate("UPDATE produtocategoria
+        $result = $db->dbUpdate("UPDATE categoria
                                 SET descricao = ?, statusRegistro = ?
-                                WHERE id = ?"
+                                WHERE idCategoria = ?"
                                 , [
                                     $_POST['descricao'],
                                     $_POST['statusRegistro'],
-                                    $_POST['id']
+                                    $_POST['idCategoria']
                                 ]);
         
         if ($result > 0) {      // sucesso
@@ -29,4 +29,4 @@ if (isset($_POST['descricao'])) {
     }
 } 
 
-return header("Location: index.php?pagina=listaProdutoCategoria");
+return header("Location: index.php?pagina=listaCategoria");

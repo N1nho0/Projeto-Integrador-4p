@@ -10,9 +10,9 @@ $dados = [];
 
 if ($_GET['acao'] != 'insert') {
     $dados = $db->dbSelect(
-        "SELECT * FROM categoria WHERE id = ?",
+        "SELECT * FROM categoria WHERE idCategoria = ?",
         'first',
-        [$_GET['id']]
+        [$_GET['idCategoria']]
     );
 }
 
@@ -34,7 +34,7 @@ if ($_GET['acao'] != 'insert') {
 
     <form class="g-3" action="<?= $_GET['acao'] ?>Categoria.php" method="POST">
 
-        <input type="hidden" name="id" id="id" value="<?= Funcoes::setValue($dados, "id") ?>">
+        <input type="hidden" name="idCategoria" id="idCategoria" value="<?= Funcoes::setValue($dados, "idCategoria") ?>">
 
         <div class="row">
 

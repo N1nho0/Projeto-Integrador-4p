@@ -91,4 +91,62 @@ class Funcoes
         }
     }
 
+    /**
+     * getAdministrador
+     *
+     * @return bool
+     */
+    public static function getAdministrador()
+    {
+        if (!isset($_SESSION['tipoUsuario'])) {
+            return false;
+        } else {
+            if ($_SESSION['tipoUsuario'] == 1) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+    /**
+     * valorBr
+     *
+     * @param mixed $valor 
+     * @param int $decimais 
+     * @return float
+     */
+    public static function valorBr($valor, $decimais = 2)
+    {
+        return number_format($valor, $decimais, ",", ".");
+    }
+
+    /**
+     * strDecimais
+     *
+     * @param string $valor 
+     * @return float
+     */
+    public static function strDecimais($valor)
+    {
+        return str_replace(",", ".", str_replace(".", "", $valor));
+    } 
+
+    /**
+     * gerarNomeAleatorio
+     *
+     * @param string $nomeArquivo 
+     * @return string
+     */
+    public static function gerarNomeAleatorio($nomeArquivo) 
+    {
+        $retNome    = "";
+        $arquivo    = explode(".", $nomeArquivo);
+        $arqExt     = $arquivo[count($arquivo) -1 ];
+        $arqNome    = str_replace('.' . $arqExt, "",  $nomeArquivo);
+        $aleatorio  = rand(0, 99999);
+        
+        return $arqNome . '-' . $aleatorio . '.' .  $arqExt;
+    }
 }
