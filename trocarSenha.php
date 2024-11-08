@@ -16,7 +16,7 @@ if (isset($_POST['senhaAtual'])) {
         $data = $db->dbSelect(
                                 "SELECT * FROM usuario WHERE id = ?",
                                 'first',
-                                [$_SESSION['idUsuario']]);
+                                [$_SESSION['id']]);
 
         if (password_verify(trim($_POST['senhaAtual']), trim($data['senha']))) {
 

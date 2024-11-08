@@ -12,9 +12,9 @@ if (isset($_POST['nome'])) {
 
     try {
         $result = $db->dbDelete("DELETE FROM usuario
-                                WHERE idUsuario = ?"
+                                WHERE id = ?"
                                 , [
-                                    $_POST['idUsuario']
+                                    $_POST['id']
                                 ]);
         
         if ($result > 0) {      // sucesso

@@ -50,15 +50,15 @@ $data = $db->dbSelect("SELECT * FROM usuario ORDER BY nome");
             <?php if (count($data) > 0): ?>
                 <?php foreach ($data as $row): ?>
                     <tr>
-                        <td><?= $row['idUsuario'] ?></td>
+                        <td><?= $row['id'] ?></td>
                         <td><?= $row['nome'] ?></td>
                         <td><?= $row['email'] ?></td>
-                        <td><?= ($row['tipoUsuario'] == 1 ? "Administrador" : ($row['tipoUsuario'] == 2 ? "Usuário" : "...")) ?></td>
+                        <td><?= ($row['nivel'] == 1 ? "Administrador" : ($row['nivel'] == 2 ? "Usuário" : "...")) ?></td>
                         <td><?= Funcoes::getStatusRegistro($row['statusRegistro']) ?></td>
                         <td>
-                            <a href="index.php?pagina=formUsuario&acao=update&idUsuario=<?= $row['idUsuario'] ?>" class="btn btn-outline-primary btn-sm" title="Alteração">Alterar</a>
-                            <a href="index.php?pagina=formUsuario&acao=delete&idUsuario=<?= $row['idUsuario'] ?>" class="btn btn-outline-danger btn-sm" title="Exclusão">Excluir</a>
-                            <a href="index.php?pagina=formUsuario&acao=view&idUsuario=<?= $row['idUsuario'] ?>" class="btn btn-outline-secondary btn-sm" title="Visualização">Visualizar</a>
+                            <a href="index.php?pagina=formUsuario&acao=update&id=<?= $row['id'] ?>" class="btn btn-outline-primary btn-sm" title="Alteração">Alterar</a>
+                            <a href="index.php?pagina=formUsuario&acao=delete&id=<?= $row['id'] ?>" class="btn btn-outline-danger btn-sm" title="Exclusão">Excluir</a>
+                            <a href="index.php?pagina=formUsuario&acao=view&id=<?= $row['id'] ?>" class="btn btn-outline-secondary btn-sm" title="Visualização">Visualizar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

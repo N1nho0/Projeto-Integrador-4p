@@ -7,95 +7,114 @@ require_once "lib/funcoes.php"
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
+<!DOCTYPE html>
+<html lang="pt-br">
 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Prato Bom - Home</title>
 
-    <link rel="icon" href="assets/img/Fevicon.png" type="image/png">
+    <title>Da Roça</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-    <link rel="stylesheet" href="assets/vendors/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/vendors/themify-icons/themify-icons.">
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/vendors/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/vendors/Magnific-Popup/magnific-popup.css">
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/style_fasm.css">
-    <link href="utilities/DataTables/datatables.min.css" rel="stylesheet" type="text/css" />
 
-    <script src="assets/js/jquery-1.11.3.min.js"></script>
-    <script src="assets/js/jqueryMask.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="assets/vendors/nice-select/jquery.nice-select.min.js"></script>
-    <script src="assets/vendors/Magnific-Popup/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-    <script src="assets/js/mail-script.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Vendor CSS Files -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="vendor/aos/aos.css" rel="stylesheet">
+    <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <script src="utilities/DataTables/datatables.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery-3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/jqueryMask.js"></script>
 
 </head>
 
 
 <body>
 
-    <header class="header_area">
-        <nav class="custom-bg navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.php"><img class="logo-img" src="assets/img/favicon.png" alt="Logotipo"></a>
+    <header id="header" class="header fixed d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="index.php" class="logo d-flex align-items-center me-auto me-lg-0">
+                <!-- 
+                <img src="assets/img/logo.png" alt="">
+                -->
+                <h1>Da<span> Roça</span></h1>
+            </a>
+            <nav id="navbar" class="navbar navbar-expand-lg">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto ">
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="index.php">Home</a>
+                            <a class="nav-link active" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="index.php?pagina=catalogo">Catálogo</a>
+                            <a class="nav-link active" href="index.php?pagina=sobreNos">A empresa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="index.php?pagina=sobrenos">Sobre Nós</a>
+                            <a class="nav-link active" href="index.php?pagina=produtos">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="index.php?pagina=faleconosco">Fale Conosco</a>
+                            <a class="nav-link active" href="index.php?pagina=fornecedores">Fornecedores</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.php?pagina=faleConosco">Fale Conosco</a>
+                        </li>
                         <?php
                         if (!isset($_SESSION['userId'])) {
                         ?>
-                            <li class="nav-item active"><a class="nav-link text-white" href="index.php?pagina=loginView">Área restrita</a></li>
+                            <li class="nav-item active"><a class="nav-link active" href="index.php?pagina=loginView">Área restrita</a></li>
                         <?php
                         } else {
                         ?>
-
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                     aria-expanded="false"><?= substr($_SESSION['userName'], 0, 15) ?></a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="logout.php">Sair</a></li>
-
-                                    <?php if ($_SESSION['tipoUsuario'] == 1): ?>
-                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaCategoria">Categorias</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaProduto">Produtos</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index.php?pagina=listaUsuario">Usuários</a></li>
+                                    <?php if ($_SESSION['nivel'] == 1): ?>
+                                        <li><a class="dropdown-item" href="index.php?pagina=listaUsuario">Usuário</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="index.php?pagina=listaUf">UF</a></li>
+                                        <li><a class="dropdown-item" href="index.php?pagina=listaCidade">Cidade</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="index.php?pagina=listaProdutoCategoria">Categoria de Produtos</a></li>
+                                        <li><a class="dropdown-item" href="index.php?pagina=listaProduto">Produtos/Serviços</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="index.php?pagina=listaFornecedor">Fornecedor</a></li>
                                     <?php endif; ?>
-
                                     <li class="nav-item"><a class="nav-link" href="index.php?pagina=trocarSenhaView">Trocar a Senha</a></li>
                                 </ul>
                             </li>
                         <?php
-
                         }
                         ?>
                     </ul>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
     <main>

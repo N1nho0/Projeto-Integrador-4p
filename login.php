@@ -10,7 +10,7 @@
 
         // buscar o usuário do e-mail informado no login
         $data = $db->dbSelect(
-            "SELECT * FROM usuario WHERE Email = ?",
+            "SELECT * FROM usuario WHERE email = ?",
             'first',
             [$_POST['email']]);
         
@@ -24,12 +24,12 @@
                 // Cria o super user
 
                 $result = $db->dbInsert("INSERT INTO usuario
-                                        (tipoUsuario, nome, email, senha)
+                                        (nivel, nome, email, senha)
                                         VALUES (?, ?, ?, ?)",
                                         [
                                             1,
                                             "Administrador",
-                                            "adm@catalogo.com.br",
+                                            "adm@daroca.com.br",
                                             password_hash("admin", PASSWORD_DEFAULT)
                                         ]);
 
@@ -56,10 +56,10 @@
 
                     // criar flags do usuário logado
 
-                    $_SESSION['userId']     = $data['idUsuario'];
+                    $_SESSION['userId']     = $data['id'];
                     $_SESSION['userEmail']  = $data['email'];
                     $_SESSION['userName']   = $data['nome'];
-                    $_SESSION['tipoUsuario']  = $data['tipoUsuario'];
+                    $_SESSION['nivel']  = $data['nivel'];
 
                     // redirecionar o usuário para a página index
                     return header("Location: index.php");

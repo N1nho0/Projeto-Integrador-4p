@@ -38,7 +38,7 @@ class Funcoes
                             </button>
                         </div>
                     </div>';
-            
+
             unset($_SESSION['msgSuccess']);
         }
 
@@ -80,7 +80,7 @@ class Funcoes
      * @param int $status 
      * @return string
      */
-    public static function getStatusRegistro($status) : string
+    public static function getStatusRegistro($status): string
     {
         if ($status == 1) {
             return "Ativo";
@@ -98,10 +98,10 @@ class Funcoes
      */
     public static function getAdministrador()
     {
-        if (!isset($_SESSION['tipoUsuario'])) {
+        if (!isset($_SESSION['nivel'])) {
             return false;
         } else {
-            if ($_SESSION['tipoUsuario'] == 1) {
+            if ($_SESSION['nivel'] == 1) {
                 return true;
             }
         }
@@ -125,13 +125,35 @@ class Funcoes
     /**
      * strDecimais
      *
-     * @param string $valor 
+     * @param string $valor
      * @return float
      */
     public static function strDecimais($valor)
     {
-        return str_replace(",", ".", str_replace(".", "", $valor));
-    } 
+        // Remove os pontos (separadores de milhar) e substitui a vírgula por ponto
+        $valorFormatado = str_replace(",", ".", str_replace(".", "", $valor));
+
+        // Retorna o valor como float
+        return (float) $valorFormatado;
+    }
+
+    /**
+     * strInt
+     *
+     * Converte uma string para inteiro, removendo qualquer caractere não numérico.
+     *
+     * @param string $valor
+     * @return int
+     */
+    public static function strInt($valor)
+    {
+        // Remove qualquer caractere não numérico
+        $valor = preg_replace('/\D/', '', $valor);
+
+        // Converte para inteiro
+        return (int) $valor;
+    }
+
 
     /**
      * gerarNomeAleatorio
@@ -139,14 +161,33 @@ class Funcoes
      * @param string $nomeArquivo 
      * @return string
      */
-    public static function gerarNomeAleatorio($nomeArquivo) 
+    public static function gerarNomeAleatorio($nomeArquivo)
     {
         $retNome    = "";
         $arquivo    = explode(".", $nomeArquivo);
-        $arqExt     = $arquivo[count($arquivo) -1 ];
+        $arqExt     = $arquivo[count($arquivo) - 1];
         $arqNome    = str_replace('.' . $arqExt, "",  $nomeArquivo);
         $aleatorio  = rand(0, 99999);
-        
+
         return $arqNome . '-' . $aleatorio . '.' .  $arqExt;
+    }
+
+
+    /**
+     * userLogado
+     *
+     * @return bool
+     */
+    public static function userLogado($nivel = 1)
+    {
+        if (isset($_SESSION['userId'])) {
+            if ($_SESSION['userNivel'] == $nivel) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        return false;
     }
 }
