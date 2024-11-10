@@ -10,9 +10,9 @@ $dados = [];
 
 if ($_GET['acao'] != 'insert') {
     $dados = $db->dbSelect(
-        "SELECT * FROM categoria WHERE idCategoria = ?",
+        "SELECT * FROM produtocategoria WHERE id = ?",
         'first',
-        [$_GET['idCategoria']]
+        [$_GET['id']]
     );
 }
 
@@ -25,16 +25,16 @@ if ($_GET['acao'] != 'insert') {
             <h3>Categoria<?= $func->subTitulo($_GET['acao']) ?></h3>
         </div>
         <div class="col-2 text-end">
-            <a href="index.php?pagina=listaCategoria" 
+            <a href="index.php?pagina=listaProdutoCategoria" 
                 class="btn btn-outline-secondary btn-sm">
                 Voltar
             </a>
         </div>
     </div>
 
-    <form class="g-3" action="<?= $_GET['acao'] ?>Categoria.php" method="POST">
+    <form class="g-3" action="<?= $_GET['acao'] ?>ProdutoCategoria.php" method="POST">
 
-        <input type="hidden" name="idCategoria" id="idCategoria" value="<?= Funcoes::setValue($dados, "idCategoria") ?>">
+        <input type="hidden" name="id" id="id" value="<?= Funcoes::setValue($dados, "id") ?>">
 
         <div class="row">
 
@@ -66,7 +66,7 @@ if ($_GET['acao'] != 'insert') {
 
         <div class="row mt-3">
             <div class="col-12">
-                <a href="index.php?pagina=listaCategoria" 
+                <a href="index.php?pagina=listaProdutoCategoria" 
                     class="btn btn-outline-secondary btn-sm">
                     Voltar
                 </a>

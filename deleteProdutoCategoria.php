@@ -11,10 +11,10 @@ if (isset($_POST['descricao'])) {
     $db = new Database();
 
     try {
-        $result = $db->dbDelete("DELETE FROM categoria
-                                WHERE idCategoria = ?"
+        $result = $db->dbDelete("DELETE FROM produtocategoria
+                                WHERE id = ?"
                                 , [
-                                    $_POST['idCategoria']
+                                    $_POST['id']
                                 ]);
         
         if ($result > 0) {      // sucesso
@@ -26,4 +26,4 @@ if (isset($_POST['descricao'])) {
     }
 } 
 
-return header("Location: index.php?pagina=listaCategoria");
+return header("Location: index.php?pagina=listaProdutoCategoria");

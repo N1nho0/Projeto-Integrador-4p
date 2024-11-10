@@ -11,22 +11,22 @@ if (isset($_POST['descricao'])) {
     $db = new Database();
 
     try {
-        $result = $db->dbUpdate("UPDATE categoria
+        $result = $db->dbUpdate("UPDATE produtocategoria
                                 SET descricao = ?, statusRegistro = ?
-                                WHERE idCategoria = ?"
+                                WHERE id = ?"
                                 , [
                                     $_POST['descricao'],
                                     $_POST['statusRegistro'],
-                                    $_POST['idCategoria']
+                                    $_POST['id']
                                 ]);
         
         if ($result > 0) {      // sucesso
             $_SESSION['msgSuccess'] = "Registro alterado com sucesso.";
         }
 
-    } catch (\Exception $e) {
+    } catch (Exception $e) {
         $_SESSION['msgError'] = "ERROR: " . $e->getMessage();
     }
 } 
 
-return header("Location: index.php?pagina=listaCategoria");
+return header("Location: index.php?pagina=listaProdutoCategoria");

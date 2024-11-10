@@ -11,7 +11,7 @@ if (isset($_POST['descricao'])) {
     $db = new Database();
 
     try {
-        $result = $db->dbInsert("INSERT INTO categoria
+        $result = $db->dbInsert("INSERT INTO produtocategoria
                                 (descricao, statusRegistro)
                                 VALUES (?, ?)"
                                 ,[
@@ -28,4 +28,4 @@ if (isset($_POST['descricao'])) {
     }
 } 
 
-return header("Location: index.php?pagina=listaCategoria");
+return header("Location: index.php?pagina=listaProdutoCategoria");

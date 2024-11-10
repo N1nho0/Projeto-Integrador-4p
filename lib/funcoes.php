@@ -33,9 +33,7 @@ class Funcoes
             $ret = '<div class="row">
                         <div class="col-12 m-3 alert alert-success alert-dismissible fade show" role="alert">
                             <strong>' . $_SESSION['msgSuccess'] . '</strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </div>';
 
@@ -46,9 +44,7 @@ class Funcoes
             $ret = '<div class="row">
                         <div class="col-12 m-3 alert alert-danger alert-dismissible fade show" role="alert">
                             <strong>' . $_SESSION['msgError'] . '</strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </div>';
 

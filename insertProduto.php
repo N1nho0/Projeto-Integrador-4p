@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 session_start();
 
-if (isset($_POST['titulo'])) {
-
+if (isset($_POST['descricao'])) {
+    var_dump($_POST);
     // Carrega lib do banco de dados
     require_once "lib/Database.php";
     //
@@ -17,13 +17,11 @@ if (isset($_POST['titulo'])) {
         // Download de arquivos e imagens
         //
 
-        $cont = 1;
-
         foreach ($_FILES as $value) {
 
             //lista de tipos de arquivos permitidos
             $tiposPermitidos =  array('image/gif', 'image/jpeg', 'image/jpg', 'image/png');
-            
+
             $tamanhoPermitido   = 1024 * 1024 * 5;                                          // 5mb //tamanho máximo (em bytes)
             $imagem             = Funcoes::gerarNomeAleatorio($value['name']);   // nome original do arquivo no computador do usuario
             $imagemType         = $value['type'];                                // o tipo do arquivo
@@ -41,49 +39,42 @@ if (isset($_POST['titulo'])) {
                 } else if ($imagemSize > $tamanhoPermitido) { //veririca o tamanho doa rquivo enviado
                     $msgError = "O tamanho do arquivo enviado é inválido! (" . $imagem . ")";
                 } else { // não houve error, move o arquivo
-                    $upload = move_uploaded_file($imagemTemp, 'uploads/quemsomos/' . $imagem);
+                    $upload = move_uploaded_file($imagemTemp, 'uploads/produto/' . $imagem);
 
                     if (!$upload) {
                         $msgError = "Houve uma falha ao realizar o upload da imagem (" . $imagem . ")";
                     }
-
-                    if ($cont == 1) {
-                        $imagem1 = $imagem;
-                    } else {
-                        $imagem2 = $imagem;
-                    }
-        
-                    $cont++;
-
                 }
             }
         }
 
         if ($upload) {
 
-            $result = $db->dbInsert("INSERT INTO quemsomos
-                                    (titulo, texto, imagem1, imagem2, statusRegistro)
-                                    VALUES (?, ?, ?, ?, ?)"
-                                    ,[
-                                        $_POST['titulo'],
-                                        $_POST['texto'],
-                                        $imagem1,
-                                        $imagem2,
-                                        $_POST['statusRegistro']
-                                    ]);
-            
+            $result = $db->dbInsert(
+                "INSERT INTO produto
+                (descricao, produtocategoria_id, statusCadastro, qtdeEmEstoque, custoTotal, precoVenda, caracteristicas, imagem)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                [
+                    $_POST['descricao'],
+                    $_POST['produtocategoria_id'],
+                    $_POST['statusCadastro'],
+                    $_POST['qtdeEmEstoque'],
+                    $_POST['custoTotal'],
+                    $_POST['precoVenda'],
+                    $_POST['caracteristicas'],
+                    $imagem
+                ]
+            );
+
             if ($result > 0) {      // sucesso
                 $_SESSION['msgSuccess'] = "Registro inserido com sucesso.";
-            } 
-        
+            }
         } else {
             $_SESSION['msgError'] = "Falha no upload: " . $msgError;
         }
-
     } catch (Exception $e) {
         $_SESSION['msgError'] = "ERROR: " . $e->getMessage();
     }
+}
 
-} 
-
-return header("Location: index.php?pagina=listaQuemSomos");
+return header("Location: index.php?pagina=listaProduto");

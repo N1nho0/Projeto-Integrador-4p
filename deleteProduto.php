@@ -1,29 +1,34 @@
-<?php 
+<?php
+    session_start();
 
-session_start();
-
-if (isset($_POST['descricao'])) {
-
-    // Carrega lib do banco de dados
     require_once "lib/Database.php";
 
-    // criar o objeto do banco e dados
-    $db = new Database();
+    if (isset($_POST['id'])) {
 
-    try {
-        $result = $db->dbDelete("DELETE FROM categoria
-                                WHERE idCategoria = ?"
-                                , [
-                                    $_POST['idCategoria']
-                                ]);
-        
-        if ($result > 0) {      // sucesso
-            $_SESSION['msgSuccess'] = "Registro excluído com sucesso.";
+        $db = new Database();
+
+        try {
+            $result = $db->dbDelete("DELETE FROM produto 
+                                    WHERE id = ?",
+                                    [$_POST['id']]
+                                );
+
+            if ($result) {
+
+                // unlink, ele excluí a imagem fisicamente no servidor
+                if (file_exists('uploads/produto/' . $_POST['excluirImagem'])) {
+                    unlink('uploads/produto/' . $_POST['excluirImagem']);
+                }
+
+                $_SESSION['msgSuccess'] = "Registro excluído com sucesso.";
+            } else {
+                $_SESSION['msgSuccess'] = "Falha ao tentar excluír o registro.";
+            }
+            
+        } catch (Exception $ex) {
+            $_SESSION['msgSuccess'] = '<p style="color: red;">ERROR: '. $ex->getMessage(). "</p>";
         }
 
-    } catch (\Exception $e) {
-        $_SESSION['msgError'] = "ERROR: " . $e->getMessage();
     }
-} 
 
-return header("Location: index.php?pagina=listaCategoria");
+    return header("Location: index.php?pagina=listaProduto");
