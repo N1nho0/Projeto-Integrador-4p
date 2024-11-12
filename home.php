@@ -4,10 +4,10 @@
         <div class="row justify-content-between gy-5">
         <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
             <h2 data-aos="fade-up">Da Roça </h2>
-            <p data-aos="fade-up" data-aos-delay="100">Saboreie a essência do Brasil em cada gole de cachaça, uma celebração destilada da tradição, paixão e qualidade. Aqui, cada garrafa conta uma história, e cada gole é uma viagem sensorial pelas raízes da cultura brasileira.</p>
+            <p data-aos="fade-up" data-aos-delay="100">A Hortifruti Da Roça é uma empresa que traz o frescor e a qualidade diretamente da fazenda para a sua mesa. Nosso compromisso é com a produção e comercialização de frutas, hortaliças e outros produtos frescos cultivados com muito cuidado, respeitando os ciclos naturais e priorizando práticas agrícolas sustentáveis. Trabalhamos com produtores locais, garantindo que cada item que oferecemos seja colhido no ponto ideal de maturação, preservando o sabor, a textura e os nutrientes essenciais. Aqui, a qualidade vem do campo, e a nossa missão é levar a autenticidade e o frescor das melhores produções rurais para quem valoriza uma alimentação saudável e saborosa. Com a Da Roça, você tem a certeza de estar consumindo alimentos frescos, naturais e com o melhor que a agricultura pode oferecer..</p>
             <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
             <a href="#book-a-table" class="btn-book-a-table">Inscreva-se</a>
-            <a href="https://www.youtube.com/watch?v=KeIgesmZFGk&t=30s" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Assista</span></a>
+            <a href="https://www.youtube.com/watch?v=c0_SzSM2yu0&t=4s" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Assista</span></a>
             </div>
         </div>
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
@@ -29,29 +29,19 @@
     <div class="row gy-4">
         <div class="col-lg-7 position-relative" style="background-image: url(assets/img/about.jpg) ;" data-aos="fade-up" data-aos-delay="150">
         <div class="call-us position-absolute">
-            <h4>Fale Conosco</h4>
-            <p>+1 5589 55488 55</p>
+            <h4>Faça seus pedidos </h4>
+            <p>(32)99975-1658</p>
         </div>
         </div>
         <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
         <div class="content ps-0 ps-lg-5">
             <p>
-            A "Marvada Pinga" é uma distribuidora de cachaças que surge da paixão pela tradição e do 
-            desejo de apoiar pequenos produtores enfrentando desafios de visibilidade no mercado digital.
-            A empresa serve como ponte entre artesãos de cachaça, muitos idosos e sem acesso à internet,
-            e os apreciadores da bebida. Além de distribuir cachaças de qualidade, a empresa busca 
-            proporcionar uma plataforma para que pequenos produtores alcancem novos clientes e 
-            compartilhem suas autênticas histórias. A "Marvada Pinga" acredita que cada garrafa conta
-            uma narrativa única, representando um pedaço da tradição brasileira, e busca preservar a 
-            autenticidade da cachaça artesanal, sendo mais do que uma distribuidora, mas um catalisador 
-            para essa missão. A empresa convida a todos a se unirem nessa jornada de sabores inexplorados
-            e a apoiarem os produtores locais, onde cada gole conta uma história de dedicação, tradição 
-            e sabor.
+            A Ortfrut Da Roça nasceu de uma família mineira tradicional, que herdou uma fazenda no interior de Minas Gerais e começou a cultivar seus próprios alimentos com muito carinho e respeito à terra. O frescor e a qualidade dos produtos logo atraíram amigos e vizinhos, e o boca a boca fez o negócio crescer. Com o tempo, a paixão pela agricultura se transformou em uma empresa, mantendo sempre a essência da roça e os valores de qualidade e proximidade com os clientes. Hoje, a Hortifruti Da Roça é sinônimo de frescor e confiança, levando o melhor do campo para a mesa de seus clientes.
             </p>
 
             <div class="position-relative mt-4">
             <img src="assets/img/logo.png" class="img-fluid" alt="">
-            <a href="https://www.youtube.com/watch?v=KeIgesmZFGk&t=30s" class="glightbox play-btn"></a>
+            <a href="https://www.youtube.com/watch?v=eDKAs_RvsTw" class="glightbox play-btn"></a>
             </div>
         </div>
         </div>
@@ -68,9 +58,9 @@
 
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
         <div class="why-box">
-            <h3>Por que escolher a Marvada ?</h3>
+            <h3>Por que escolher Nosso Hortifruti ?</h3>
             <p>
-            Na Marvada da Pinga, nossa missão transcende a mera distribuição de cachaças. Nosso compromisso é facilitar o acesso ao mercado para pequenos produtores de cachaça, sendo os guardiões da autenticidade e tradição dessa bebida singular. Queremos não apenas comercializar cachaças, mas também celebrar e preservar a riqueza cultural por trás de cada garrafa.
+            Escolher produtos Da Roça é optar por frescor, sabor autêntico e qualidade diretamente do campo. Nossos alimentos são cultivados com carinho e responsabilidade, seguindo práticas sustentáveis e respeitando o meio ambiente. Trabalhamos com produtores locais, garantindo produtos frescos e naturais, que preservam o sabor e os nutrientes. Além disso, ao escolher nossos produtos, você apoia o comércio justo e a economia local. Com a Da Roça, você leva para sua mesa o melhor da agricultura familiar, com a confiança de quem valoriza tradição e qualidade.
             </p>
             <div class="text-center">
             <a href="#" class="more-btn">Veja Mais <i class="bx bx-chevron-right"></i></a>
@@ -85,7 +75,7 @@
             <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                 <i class="bi bi-clipboard-data"></i>
                 <h4>Crescimento</h4>
-                <p>Nossa principal preocupação é trazer mais visibilidade aos pequenos produtores e seus destilados</p>
+                <p>A Hortifruti Da Roça começou como uma pequena produção familiar, vendendo para amigos e vizinhos. Com o tempo, o negócio cresceu, expandindo sua produção e atendimento. Hoje, somos uma empresa consolidada, mantendo o compromisso com a qualidade e o frescor dos nossos produtos.</p>
             </div>
             </div><!-- End Icon Box -->
 
@@ -93,7 +83,7 @@
             <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                 <i class="bi bi-gem"></i>
                 <h4>Qualidade</h4>
-                <p>Todas os produtos têm o selo de qualidade testado e aprovado pelos especialistas em bebidas</p>
+                <p>A Hortifruti Da Roça oferece produtos frescos e de qualidade, cultivados com práticas sustentáveis e sem aditivos químicos. Trabalhamos com produtores locais, garantindo alimentos saborosos e saudáveis. Nossa missão é levar o melhor do campo diretamente para sua mesa.</p>
             </div>
             </div><!-- End Icon Box -->
 
@@ -101,7 +91,7 @@
             <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                 <i class="bi bi-inboxes"></i>
                 <h4>Oferta</h4>
-                <p>Os produtores cadastros têm total controle sobre seus estoques e encomendas, podendo gerenciar facilmente seu negócio</p>
+                <p>Na Hortifruti Da Roça, oferecemos promoções especiais e descontos exclusivos em nossos produtos frescos e de qualidade. Fique atento às nossas ofertas sazonais, que garantem preços ainda mais acessíveis. Aproveite para levar o melhor da roça para sua casa!</p>
             </div>
             </div><!-- End Icon Box -->
 
@@ -122,28 +112,28 @@
         <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
             <span data-purecounter-start="0" data-purecounter-end="4444" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Clientes</p>
+            <p></p>
         </div>
         </div><!-- End Stats Item -->
 
         <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
             <span data-purecounter-start="0" data-purecounter-end="444" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Produtos</p>
+            <p></p>
         </div>
         </div><!-- End Stats Item -->
 
         <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
             <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Premiações</p>
+            <p></p>
         </div>
         </div><!-- End Stats Item -->
 
         <div class="col-lg-3 col-md-6">
         <div class="stats-item text-center w-100 h-100">
             <span data-purecounter-start="0" data-purecounter-end="44" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Produtores</p>
+            <p></p>
         </div>
         </div><!-- End Stats Item -->
 
