@@ -5,12 +5,20 @@
 
 require_once "lib/Funcoes.php";
 
-// Verifica se o usuário está logado e se o nível é 3
-if (Funcoes::getLogado() && $_SESSION['nivel'] == 3) {
-    header("Location: index.php?pagina=fornecedorMenu");
-    exit; // Interrompe a execução do script após o redirecionamento
+// Verifica se o usuário está logado
+if (Funcoes::getLogado()) {
+    if ($_SESSION['nivel'] == 3) {
+        // Redireciona para o fornecedorMenu se o nível for 3
+        header("Location: index.php?pagina=fornecedorMenu");
+        exit;
+    } elseif ($_SESSION['nivel'] == 1) {
+        // Redireciona para listaProduto se o nível for 1
+        header("Location: index.php?pagina=listaProduto");
+        exit;
+    }
 }
 ?>
+
 <section class="section-margin">
 
     <div class="container">
