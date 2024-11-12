@@ -57,55 +57,27 @@ Se antigamente ia-se à feira, à quitanda, ou ao mercadinho, hoje todo mundo va
     </div>
 
     <div class="section-header">
-        <p><span> Fermentação</span>:</p>
+        <p><span> Diferenciais</span>:</p>
     </div>
 
     <div>
         <div class="d-flex align-items-end text-center" data-aos="fade-up" data-aos-delay="300">
             <p>
-            O caldo de cana é então submetido ao processo de fermentação. Aqui, a mágica acontece à medida que as leveduras transformam os açúcares em álcool. Este é um estágio crucial que, na Marvada da Pinga, é acompanhado de perto para assegurar que as características únicas da cachaça se desenvolvam plenamente.
+            Nosso hortifrúti em Muriaé se destaca pela qualidade e frescor dos produtos que oferecemos. Trabalhamos para garantir que nossos itens cheguem aos nossos clientes diretamente da natureza, preservando suas características nutricionais e sabor. Priorizamos sempre a frescura, com produtos cultivados de maneira responsável e com foco na sustentabilidade. Nossa missão é proporcionar alimentos saudáveis, frescos e de confiança para quem busca qualidade no seu dia a dia.
             </p>
         </div>
     </div>
 
     <div class="section-header">
-        <p><span> Destilação</span>:</p>
+        <p><span> Parcerias</span>:</p>
     </div>
 
     <div>
         <div class="d-flex align-items-end text-center" data-aos="fade-up" data-aos-delay="300">
             <p>
-            O destilador, em formato de alambique, é a alma da produção da cachaça. É neste momento que o líquido fermentado é aquecido, e os vapores são coletados e condensados, resultando na cachaça. A destilação é um processo delicado, no qual os mestres destiladores da Marvada da Pinga aplicam sua perícia para obter uma bebida de alta qualidade.
+            Um dos nossos principais diferenciais é a forte parceria com produtores locais da região de Muriaé. Valorizamos a produção local, o que nos permite oferecer produtos frescos e de alta qualidade, além de apoiar a economia da nossa comunidade. Essas parcerias garantem um abastecimento constante e direto, com frutas, verduras e legumes cultivados de maneira sustentável e com cuidado, respeitando os processos naturais. Isso não só proporciona alimentos mais frescos para nossos clientes, mas também fortalece o vínculo entre o hortifrúti e os produtores locais, criando um ciclo de colaboração e confiança.
             </p>
         </div>
     </div>
-
-    <div class="section-header">
-        <p><span> Envelhecimento</span>:</p>
-    </div>
-
-    <div>
-        <div class="d-flex align-items-end text-center" data-aos="fade-up" data-aos-delay="300">
-            <p>
-            Alguns lotes selecionados passam por um período de envelhecimento em tonéis de madeira. Essa etapa adiciona complexidade aos sabores, conferindo à cachaça notas únicas que a distinguem. A paciência é uma virtude nesse processo, pois o tempo é essencial para que os aromas se fundam harmoniosamente.
-            </p>
-        </div>
-    </div>
-
-    <div class="section-header">
-        <p>Engarrafamento <span> e Distribuição</span>:</p>
-    </div>
-
-    <div>
-        <div class="d-flex align-items-end text-center" data-aos="fade-up" data-aos-delay="300">
-            <p>
-            Finalmente, a cachaça é engarrafada com cuidado, preservando toda a essência do trabalho árduo e da tradição artesanal. A Marvada da Pinga tem o compromisso de levar essa expressão autêntica da cultura brasileira para apreciadores em todo o mundo.
-            <br>
-            Assim, a Marvada da Pinga não apenas produz cachaça; ela destila a paixão e a história que permeiam cada gole. Cada garrafa é um testemunho do cuidado artesanal e do respeito às raízes culturais, tornando a Marvada da Pinga uma referência inigualável no universo da cachaça brasileira.
-            </p>
-        </div>
-    </div>
-
-
-    </div>
+    
 </section><!-- End About Section -->

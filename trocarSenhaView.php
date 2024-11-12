@@ -7,7 +7,7 @@ require_once "lib/Funcoes.php";
 
 // Verificando se o usário está logado e se o é administrador,
 // se não for rediciona para a página login
-if (Funcoes::getLogado()) {
+if (!Funcoes::getAdministrador()) {
     $_SESSION['msgError'] = "Usuário não logado ou sem permissão para acessar o recurso";
     return header("Location: index.php");
 }
