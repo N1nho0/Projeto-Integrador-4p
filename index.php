@@ -1,4 +1,6 @@
 <?php
+ob_start();
+
 session_start();
 
 require_once "lib/funcoes.php"
@@ -71,7 +73,7 @@ require_once "lib/funcoes.php"
                             <a class="nav-link active" href="index.php?pagina=produtos">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.php?pagina=fornecedores">Fornecedores</a>
+                            <a class="nav-link active" href="index.php?pagina=loginViewFornecedor">Fornecedores</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="index.php?pagina=faleConosco">Fale Conosco</a>
@@ -84,8 +86,9 @@ require_once "lib/funcoes.php"
                         } else {
                         ?>
                             <li class="nav-item submenu dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                    aria-expanded="false"><?= substr($_SESSION['userName'], 0, 15) ?></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <?= isset($_SESSION['userName']) && !is_null($_SESSION['userName']) ? substr($_SESSION['userName'], 0, 15) : 'Usuário' ?>
+                                </a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item"><a class="nav-link" href="logout.php">Sair</a></li>
                                     <?php if ($_SESSION['nivel'] == 1): ?>

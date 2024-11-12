@@ -8,54 +8,60 @@ if (isset($_POST['descricao'])) {
 
     try {
 
+        // Inicializa a variável para a imagem
         $imagem = $_POST['excluirImagem'];
-        $upload  = true;
+        $upload = true;
 
-        if ($_POST['excluirImagem'] != $_FILES['imagem']['name'] and $_FILES['imagem']['name'] != "") {
+        // Verifica se uma nova imagem foi enviada
+        if ($_FILES['imagem']['name'] != "") {
 
-            //lista de tipos de arquivos permitidos
+            // Lista de tipos de arquivos permitidos
             $tiposPermitidos =  array('image/gif', 'image/jpeg', 'image/jpg', 'image/png');
+            $tamanhoPermitido = 1024 * 1024 * 5; // 5mb // tamanho máximo (em bytes)
 
-            $tamanhoPermitido   = 1024 * 1024 * 5;                                          // 5mb //tamanho máximo (em bytes)
-            $imagem             = Funcoes::gerarNomeAleatorio($_FILES['imagem']['name']);   // nome original do arquivo no computador do usuario
-            $imagemType         = $_FILES['imagem']['type'];                                // o tipo do arquivo
-            $imagemSize         = $_FILES['imagem']['size'];                                // o tamanho do arquivo
-            $imagemTemp         = $_FILES['imagem']['tmp_name'];                            // o nome temporario do arquivo
-            $imagemError        = $_FILES['imagem']['error'];                               // codigos de possiveis erros na imagem
-            $msgError           = "";
+            // Informações sobre o arquivo da imagem
+            $imagem = Funcoes::gerarNomeAleatorio($_FILES['imagem']['name']);   // Nome aleatório para o arquivo
+            $imagemType = $_FILES['imagem']['type'];                          // Tipo do arquivo
+            $imagemSize = $_FILES['imagem']['size'];                          // Tamanho do arquivo
+            $imagemTemp = $_FILES['imagem']['tmp_name'];                      // Nome temporário do arquivo
+            $imagemError = $_FILES['imagem']['error'];                        // Erro do arquivo
+            $msgError = "";
 
+            // Verifica se houve erro no upload
             if ($imagemError === 0) {
 
-                $upload = false;
-
-                //veririca o tipo de arquivo enviado
+                // Verifica o tipo do arquivo
                 if (array_search($imagemType, $tiposPermitidos) === false) {
                     $msgError = "O tipo de arquivo enviado é inválido!";
-                } else if ($imagemSize > $tamanhoPermitido) { //veririca o tamanho doa rquivo enviado
+                } else if ($imagemSize > $tamanhoPermitido) { // Verifica o tamanho
                     $msgError = "O tamanho do arquivo enviado é inválido!";
-                } else { // não houve error, move o arquivo
-
-                    $imagem = Funcoes::gerarNomeAleatorio($imagem);
+                } else { // Caso não haja erro, move o arquivo
                     $upload = move_uploaded_file($imagemTemp, 'uploads/produto/' . $imagem);
 
+                    // Se não conseguiu mover o arquivo
                     if (!$upload) {
                         $msgError = "Houve uma falha ao realizar o upload da imagem!";
                     } else {
-                        // unlink, ele excluí a imagem fisicamente no servidor
+                        // Se a imagem anterior existir, exclui ela
                         if (file_exists('uploads/produto/' . $_POST['excluirImagem'])) {
                             unlink('uploads/produto/' . $_POST['excluirImagem']);
                         }
                     }
                 }
             }
+        } else {
+            // Se não foi enviada uma nova imagem, mantemos a imagem anterior
+            $imagem = $_POST['excluirImagem'];
         }
 
-        if ($upload) {
+        // Se o upload foi bem-sucedido ou a imagem foi mantida, faz o update
+        if ($upload || $_FILES['imagem']['name'] == "") {
 
+            // Atualiza os dados do produto
             $result = $db->dbUpdate(
                 "UPDATE produto
-                                        SET descricao = ?, produtocategoria_id = ?, statusCadastro = ?, qtdeEmEstoque = ?, custoTotal = ?, precoVenda = ?, caracteristicas = ?, imagem = ?
-                                        WHERE id = ?",
+                SET descricao = ?, produtocategoria_id = ?, statusCadastro = ?, qtdeEmEstoque = ?, custoTotal = ?, precoVenda = ?, caracteristicas = ?, imagem = ?, fornecedor_id = ?
+                WHERE id = ?",
                 [
                     $_POST['descricao'],
                     $_POST['produtocategoria_id'],
@@ -64,21 +70,26 @@ if (isset($_POST['descricao'])) {
                     $_POST['custoTotal'],
                     $_POST['precoVenda'],
                     $_POST['caracteristicas'],
-                    $imagem,
-                    $_POST['id']
-
+                    $imagem,  // Aqui passamos a imagem (nova ou mantida)
+                    $_POST['fornecedorId'], // Fornecedor (novo campo)
+                    $_POST['id'] // ID do produto a ser atualizado
                 ]
             );
 
             if ($result) {
                 $_SESSION['msgSuccess'] = "Registro alterado com sucesso.";
             }
+
         } else {
-            $_SESSION['msgSuccess'] = "ERROR: " . $msgError;
+            $_SESSION['msgError'] = "Erro no upload: " . $msgError;
         }
+
     } catch (Exception $ex) {
-        $_SESSION['msgSuccess'] = '<p style="color: red;">ERROR: ' . $ex->getMessage() . "</p>";
+        $_SESSION['msgError'] = 'ERROR: ' . $ex->getMessage();
     }
 }
 
+// Redireciona para a lista de produtos
 return header("Location: index.php?pagina=listaProduto");
+
+?>

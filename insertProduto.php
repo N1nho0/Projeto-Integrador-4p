@@ -6,10 +6,9 @@ if (isset($_POST['descricao'])) {
     var_dump($_POST);
     // Carrega lib do banco de dados
     require_once "lib/Database.php";
-    //
     require_once "lib/funcoes.php";
 
-    // criar o objeto do banco e dados
+    // Criar o objeto do banco de dados
     $db = new Database();
 
     try {
@@ -19,26 +18,26 @@ if (isset($_POST['descricao'])) {
 
         foreach ($_FILES as $value) {
 
-            //lista de tipos de arquivos permitidos
-            $tiposPermitidos =  array('image/gif', 'image/jpeg', 'image/jpg', 'image/png');
+            // Lista de tipos de arquivos permitidos
+            $tiposPermitidos = array('image/gif', 'image/jpeg', 'image/jpg', 'image/png');
 
-            $tamanhoPermitido   = 1024 * 1024 * 5;                                          // 5mb //tamanho máximo (em bytes)
-            $imagem             = Funcoes::gerarNomeAleatorio($value['name']);   // nome original do arquivo no computador do usuario
-            $imagemType         = $value['type'];                                // o tipo do arquivo
-            $imagemSize         = $value['size'];                                // o tamanho do arquivo
-            $imagemTemp         = $value['tmp_name'];                            // o nome temporario do arquivo
-            $imagemError        = $value['error'];                               // codigos de possiveis erros na imagem
+            $tamanhoPermitido = 1024 * 1024 * 5; // 5mb // tamanho máximo (em bytes)
+            $imagem = Funcoes::gerarNomeAleatorio($value['name']); // nome original do arquivo no computador do usuário
+            $imagemType = $value['type']; // o tipo do arquivo
+            $imagemSize = $value['size']; // o tamanho do arquivo
+            $imagemTemp = $value['tmp_name']; // o nome temporário do arquivo
+            $imagemError = $value['error']; // códigos de possíveis erros na imagem
 
-            $upload             = false;
-            $msgError           = "";
+            $upload = false;
+            $msgError = "";
 
             if ($imagemError === 0) {
-                //veririca o tipo de arquivo enviado
+                // Verifica o tipo de arquivo enviado
                 if (array_search($imagemType, $tiposPermitidos) === false) {
                     $msgError = "O tipo de arquivo enviado é inválido! (" . $imagem . ")";
-                } else if ($imagemSize > $tamanhoPermitido) { //veririca o tamanho doa rquivo enviado
+                } else if ($imagemSize > $tamanhoPermitido) { // Verifica o tamanho do arquivo enviado
                     $msgError = "O tamanho do arquivo enviado é inválido! (" . $imagem . ")";
-                } else { // não houve error, move o arquivo
+                } else { // Não houve erro, move o arquivo
                     $upload = move_uploaded_file($imagemTemp, 'uploads/produto/' . $imagem);
 
                     if (!$upload) {
@@ -50,10 +49,11 @@ if (isset($_POST['descricao'])) {
 
         if ($upload) {
 
+            // Alterando a consulta de inserção para incluir o fornecedorId
             $result = $db->dbInsert(
                 "INSERT INTO produto
-                (descricao, produtocategoria_id, statusCadastro, qtdeEmEstoque, custoTotal, precoVenda, caracteristicas, imagem)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                (descricao, produtocategoria_id, statusCadastro, qtdeEmEstoque, custoTotal, precoVenda, caracteristicas, imagem, fornecedorid)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", // Adiciona fornecedor_id no SQL
                 [
                     $_POST['descricao'],
                     $_POST['produtocategoria_id'],
@@ -62,11 +62,12 @@ if (isset($_POST['descricao'])) {
                     $_POST['custoTotal'],
                     $_POST['precoVenda'],
                     $_POST['caracteristicas'],
-                    $imagem
+                    $imagem,
+                    $_POST['fornecedorId'] // Aqui pega o valor do fornecedorId
                 ]
             );
 
-            if ($result > 0) {      // sucesso
+            if ($result > 0) { // Sucesso
                 $_SESSION['msgSuccess'] = "Registro inserido com sucesso.";
             }
         } else {

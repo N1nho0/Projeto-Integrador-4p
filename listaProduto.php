@@ -12,10 +12,14 @@ if (!Funcoes::getAdministrador()) {
 
 $db = new Database();
 
-$data = $db->dbSelect("SELECT  p.*, pc.descricao AS categoriaDescricao
-        FROM produto AS p 
-        INNER JOIN produtocategoria as pc ON pc.id = p.produtocategoria_id
-        ORDER BY p.descricao");
+$data = $db->dbSelect("SELECT 
+                            p.*, 
+                            pc.descricao AS categoriaDescricao, 
+                            f.nomeFornecedor 
+                        FROM produto AS p 
+                        INNER JOIN produtocategoria AS pc ON pc.id = p.produtocategoria_id
+                        INNER JOIN fornecedor AS f ON f.id = p.fornecedorId -- Ajuste feito aqui
+                        ORDER BY p.descricao");
 
 ?>
 
@@ -43,6 +47,7 @@ $data = $db->dbSelect("SELECT  p.*, pc.descricao AS categoriaDescricao
                 <th>Descrição</th>
                 <th>Preço Venda</th>
                 <th>Categoria</th>
+                <th>Fornecedor</th>
                 <th>Status</th>
                 <th>Ação</th>
             </tr>
@@ -57,6 +62,7 @@ $data = $db->dbSelect("SELECT  p.*, pc.descricao AS categoriaDescricao
                         <td><?= $row['descricao'] ?></td>
                         <td class="text-end"><?= number_format($row['precoVenda'], 2, ",", ".") ?></td>
                         <td><?= $row['categoriaDescricao'] ?></td>
+                        <td><?= $row['nomeFornecedor'] ?></td>
                         <td><?= ($row['statusCadastro'] == 1 ? "Ativo" : ($row['statusCadastro'] == 2 ? "Inativo" : "...")) ?></td>
                         <td>
                             <a href="index.php?pagina=formProduto&acao=update&id=<?= $row['id'] ?>" class="btn btn-outline-primary btn-sm" title="Alteração">Alterar</a>
