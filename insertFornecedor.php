@@ -1,8 +1,10 @@
 <?php
+require_once "lib/funcoes.php";
 
+Funcoes::mensagem();
 session_start();
 
-if (isset($_POST['nome'])) {
+if (isset($_POST['email'])) {
 
     // Carrega lib do banco de dados
     require_once "lib/Database.php";
@@ -10,42 +12,32 @@ if (isset($_POST['nome'])) {
     // criar o objeto do banco e dados
     $db = new Database();
 
-    // Gera um token único associado ao fornecedor
-    $token = bin2hex(random_bytes(16));  // Gera um token de 32 caracteres (256 bits)
-
     try {
-        $result = $db->dbUpdate(
-            "UPDATE fornecedor SET token = ?
-                                WHERE email = ?",
+        $result = $db->dbInsert(
+            "INSERT INTO fornecedor
+                                (nomeFornecedor, cnpj, telefone, endereco, email, cidade_id, estado_id, senha)
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
             [
-                $token,
-                $_POST['email']
+                $_POST['nomeFornecedor'],
+                $_POST['cnpj'],
+                $_POST['telefone'],
+                $_POST['endereco'],
+                $_POST['email'],
+                $_POST['cidade_id'],
+                $_POST['estado_id'],
+                password_hash(trim($_POST['senha']), PASSWORD_DEFAULT)
             ]
         );
-        
-        $result2 = $db->dbInsert("INSERT INTO fornecedor
-                                (nomeFornecedor, CNPJ, nomeEmpresa, contato, endereco, email, CIDADE, ESTADO, token)
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
-                                ,[
-                                    $_POST['nome'],
-                                    $_POST['cnpj'],
-                                    $_POST['nome_empresa'],
-                                    $_POST['telefone'],
-                                    $_POST['endereco'],
-                                    $_POST['email'],
-                                    $_POST['cidade'],
-                                    $_POST['estado'],
-                                    $token,
-                                ]);
-        
-        if ($result2 > 0) {      // sucesso
-            $_SESSION['msgSuccess'] = "Registro inserido com sucesso.";
-            header("Location: index.php?pagina=criaSenhaFornecedor.php?token=$token");
-        }
 
+        if ($result > 0) {      // sucesso
+            $_SESSION['msgSuccess'] = "Registro inserido com sucesso.";
+            
+        } else {
+            $_SESSION['msgError'] = "Falha ao tentar inserir o registro.";
+        }
     } catch (Exception $e) {
         $_SESSION['msgError'] = "ERROR: " . $e->getMessage();
     }
-} 
+}
 
-return header("Location: index.php?pagina=listaUsuario");
+return header("Location: index.php?pagina=loginFornecedor");

@@ -5,5 +5,6 @@
     unset($_SESSION['userEmail']);
     unset($_SESSION['userName']);
     unset($_SESSION['userNivel']);
+    unset($_SESSION['loginFornecedor']);
 
     return header("Location: index.php");
