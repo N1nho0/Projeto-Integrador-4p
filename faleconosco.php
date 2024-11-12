@@ -6,7 +6,8 @@
         </div>
 
         <div class="mb-3">
-            <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2330.0172702026153!2d-42.4090441!3d-21.128321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbcc63ed1424d3f%3A0xa3f4a05ee99976ce!2sHortibarra!5e0!3m2!1spt-BR!2sbr!4v1638984738434!5m2!1spt-BR!2sbr" frameborder="0" allowfullscreen></iframe>
+
         </div>
 
         <div class="row gy-4">
@@ -16,7 +17,7 @@
                     <i class="icon bi bi-map flex-shrink-0"></i>
                     <div>
                         <h3>Nosso Endereço</h3>
-                        <p>Rua das Tradições , N° 07, Centro, Fruta de Leite, Minas Gerais.</p>
+                        <p>Av. Cel. Monteiro de Castro, 346 - Barra, Muriaé - MG, 36880-000.</p>
                     </div>
                 </div>
             </div><!-- End Info Item -->
