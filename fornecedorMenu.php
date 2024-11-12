@@ -1,61 +1,84 @@
 <?php
 
-// Verificar se a sessão do fornecedor está ativa
-if (!isset($_SESSION['usuarioFornecedorID'])) {
-    // Se não estiver autenticado, redirecione para a página de login
-    header("Location: index.php?pagina=fornecedores");
-    exit;
+require_once "lib/Database.php";
+require_once "lib/funcoes.php";
+
+// Verificando se o usário está logado e se o é administrador,
+// se não for rediciona para a página login
+if (!$_SESSION['nivel'] == 3) {
+    $_SESSION['msgError'] = "Usuário não logado ou sem permissão para acessar o recurso";
+    return header("Location: index.php?pagina=viewLoginFornecedor");
 }
 
-// Inicia a sessão, se ainda não estiver ativa
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+$db = new Database();
+$idFornecedor = $_SESSION['userId'];
+$data = $db->dbSelect("SELECT 
+                            p.*, 
+                            pc.descricao AS categoriaDescricao, 
+                            f.nomeFornecedor 
+                        FROM produto AS p 
+                        INNER JOIN produtocategoria AS pc ON pc.id = p.produtocategoria_id
+                        INNER JOIN fornecedor AS f ON f.id = p.fornecedorId -- Ajuste feito aqui
+                        WHERE fornecedorId = $idFornecedor");
 
 ?>
 
-<section class="produto-form section-margin">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-8">
-                <div class="produto_form_inner">
-                    <h3 class="mb-4">Cadastro de Produtos</h3>
+<div class="container mt-5">
 
-                    <?php if (isset($msgSucesso)): ?>
-                        <div class="col-12 mt-3">
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <strong><?= $msgSucesso ?></strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-
-                    <form method="POST" action="insertProdutoProjeto.php" enctype="multipart/form-data">
-                        <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="nomeProduto" name="nomeProduto" placeholder="Nome do Produto" required>
-                        </div>
-                        <div class="col-md-12 form-group mt-2">
-                            <textarea class="form-control" id="descricao" name="descricao" placeholder="Descrição" required></textarea>
-                        </div>
-                        <div class="col-md-12 form-group mt-2">
-                            <input type="text" class="form-control" id="valor" name="valor" placeholder="Valor" required>
-                        </div>
-                        <div class="col-md-12 form-group mt-2">
-                            <input type="text" class="form-control" id="qtdEstoque" name="qtdEstoque" placeholder="Quantidade em Estoque" required>
-                        </div>
-                        <div class="col-md-12 form-group mt-2">
-                            <label for="imagem">Imagem:</label>
-                            <input type="file" class="form-control" id="imagem" name="imagem" accept="image/*" required>
-                        </div>
-                        <div class="col-md-12 form-group mt-2">
-                            <input type="text" class="form-control" id="custo" name="custo" placeholder="Custo" required>
-                        </div>
-                        <div class="col-12 form-group mt-3">
-                            <button type="submit" name="cadastrarProduto" class="btn btn-primary btn-sm">Cadastrar Produto</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-10">
+            <h3>Lista Produtos/Serviços</h3>
+        </div>
+        <div class="col-2 text-end">
+            <a href="index.php?pagina=formProduto&acao=insert"
+                class="btn btn-outline-secondary btn-sm"
+                title="Nova">
+                Nova
+            </a>
         </div>
     </div>
-</section>
+
+    <?= Funcoes::mensagem(); ?>
+
+    <table class="table table-striped table-hover table-bordered table-responsive-sm">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descrição</th>
+                <th>Preço Venda</th>
+                <th>Categoria</th>
+                <th>Fornecedor</th>
+                <th>Status</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <?php if (count($data) > 0): ?>
+                <?php foreach ($data as $row): ?>
+                    <tr>
+                        <td><?= $row['id'] ?></td>
+                        <td><?= $row['descricao'] ?></td>
+                        <td class="text-end"><?= number_format($row['precoVenda'], 2, ",", ".") ?></td>
+                        <td><?= $row['categoriaDescricao'] ?></td>
+                        <td><?= $row['nomeFornecedor'] ?></td>
+                        <td><?= ($row['statusCadastro'] == 1 ? "Ativo" : ($row['statusCadastro'] == 2 ? "Inativo" : "...")) ?></td>
+                        <td>
+                            <a href="index.php?pagina=formProduto&acao=update&id=<?= $row['id'] ?>" class="btn btn-outline-primary btn-sm" title="Alteração">Alterar</a>
+                            <a href="index.php?pagina=formProduto&acao=delete&id=<?= $row['id'] ?>" class="btn btn-outline-danger btn-sm" title="Exclusão">Excluir</a>
+                            <a href="index.php?pagina=formProduto&acao=view&id=<?= $row['id'] ?>" class="btn btn-outline-secondary btn-sm" title="Visualização">Visualizar</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="6">Nenhum registro encontrado.</td>
+                </tr>
+            <?php endif; ?>
+
+        </tbody>
+
+    </table>
+
+</div>

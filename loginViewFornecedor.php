@@ -1,11 +1,16 @@
 <?php
 /*
- *  Login
+ * Login Fornecedores
  */
 
 require_once "lib/Funcoes.php";
-?>
 
+// Verifica se o usuário está logado e se o nível é 3
+if (Funcoes::getLogado() && $_SESSION['nivel'] == 3) {
+    header("Location: index.php?pagina=fornecedorMenu");
+    exit; // Interrompe a execução do script após o redirecionamento
+}
+?>
 <section class="section-margin">
 
     <div class="container">
@@ -52,8 +57,6 @@ require_once "lib/Funcoes.php";
                         </div>
                     </div>
                 </form>
-
             </div>
-
         </div>
 </section>

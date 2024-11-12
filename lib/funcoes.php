@@ -115,7 +115,7 @@ class Funcoes
     public static function getLogado(): bool
     {
         // Verifica se as variáveis de sessão essenciais estão setadas
-        if (isset($_SESSION['userId']) && isset($_SESSION['userEmail']) && isset($_SESSION['userName']) && isset($_SESSION['userNivel'])) {
+        if (isset($_SESSION['userId']) && isset($_SESSION['userEmail']) && isset($_SESSION['userName']) && isset($_SESSION['nivel'])) {
             return true; // Usuário está logado
         } else {
             return false; // Usuário não está logado

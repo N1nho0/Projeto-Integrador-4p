@@ -29,11 +29,11 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
                 // Se a senha estiver incorreta, exibe mensagem de erro
                 $_SESSION['msgError'] = "Login ou senha inválida!";
             } else {
-                // Se tudo estiver correto, realiza o login
+                // Se tudo estiver correto, realiza o login e define o nível como 3
                 $_SESSION['userId']    = $data['id'];
                 $_SESSION['userEmail'] = $data['email'];
                 $_SESSION['userName']  = $data['nomeFornecedor'];
-                $_SESSION['nivel'] = 3;
+                $_SESSION['nivel'] = 3; // Definindo o nível do usuário como 3
 
                 // Redireciona para a página inicial após o login
                 header("Location: index.php");
