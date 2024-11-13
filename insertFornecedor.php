@@ -40,4 +40,4 @@ if (isset($_POST['email'])) {
     }
 }
 
-return header("Location: index.php?pagina=loginFornecedor");
+return header("Location: index.php?pagina=loginViewFornecedor");

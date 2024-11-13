@@ -12,9 +12,9 @@ if (isset($_POST['nome'])) {
     // criar o objeto do banco e dados
     $db = new Database();
 
-    try {git pull
-        $result = $db->dbInsert(
-            "INSERT INTO Uf
+    try {
+            $result = $db->dbInsert(
+            "INSERT INTO cidade
                                 (nome, uf_id, statusRegistro)
                                 VALUES (?, ?, ?)",
             [
@@ -34,4 +34,4 @@ if (isset($_POST['nome'])) {
     }
 }
 
-return header("Location: index.php?pagina=listaUf");
+return header("Location: index.php?pagina=listaCidade");

@@ -1,0 +1,26 @@
+#about {
+    background-image: url('/assets/img/img-back.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover; /* Ajusta o tamanho da imagem para cobrir toda a seção */
+    background-position: center; /* Centraliza a imagem de fundo */
+    position: relative; /* Necessário para criar o overlay */
+    padding: 60px 0; /* Ajuste o padding para o seu layout */
+}
+
+/* Camada de transparência sobre a imagem */
+#about::before {
+    content: ''; /* Necessário para criar o pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Cor preta com 30% de transparência */
+    z-index: 1; /* Garante que o overlay fique por cima da imagem, mas atrás do conteúdo */
+}
+
+/* Garantir que o conteúdo da seção fique visível */
+.container {
+    position: relative;
+    z-index: 2; /* Garante que o conteúdo da seção fique acima do overlay */
+    color: #fff; /* Alterando a cor do texto para branco para contrastar com o fundo escuro */
+}

@@ -36,7 +36,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
                 $_SESSION['nivel'] = 3; // Definindo o nível do usuário como 3
 
                 // Redireciona para a página inicial após o login
-                header("Location: index.php");
+                header("Location: index.php?pagina=fornecedorMenu");
                 exit();
             }
         }
@@ -47,7 +47,5 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 }
 
 // Redireciona de volta para a página de login se não for autenticado
-header("Location: index.php?pagina=loginViewFornecedor");
+header("Location: index.php?pagina=home");
 exit();
-
-?>

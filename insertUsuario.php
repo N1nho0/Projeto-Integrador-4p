@@ -9,20 +9,23 @@ if (isset($_POST['nome'])) {
     // Carrega lib do banco de dados
     require_once "lib/Database.php";
 
-    // criar o objeto do banco e dados
+    // Criar o objeto do banco de dados
     $db = new Database();
 
     try {
+        // Inserção no banco com os novos campos estadoId e cidadeId
         $result = $db->dbInsert(
             "INSERT INTO usuario
-                                (nome, email, nivel, statusRegistro, senha)
-                                VALUES (?, ?, ?, ?, ?)",
+                (nome, email, nivel, statusRegistro, senha, estadoId, cidadeId)
+            VALUES (?, ?, ?, ?, ?, ?, ?)",
             [
                 $_POST['nome'],
                 $_POST['email'],
                 $_POST['nivel'],
                 $_POST['statusRegistro'],
-                password_hash(trim($_POST['senha']), PASSWORD_DEFAULT)
+                password_hash(trim($_POST['senha']), PASSWORD_DEFAULT),
+                $_POST['estadoId'],
+                $_POST['cidadeId']
             ]
         );
 
@@ -36,4 +39,6 @@ if (isset($_POST['nome'])) {
     }
 }
 
-return header("Location: index.php?pagina=listaUsuario");
+// Redirecionamento após o insert
+header("Location: index.php?pagina=listaUsuario");
+exit;

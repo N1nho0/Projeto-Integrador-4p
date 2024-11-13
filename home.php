@@ -36,7 +36,7 @@
         <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
         <div class="content ps-0 ps-lg-5">
             <p>
-            A Ortfrut Da Roça nasceu de uma família mineira tradicional, que herdou uma fazenda no interior de Minas Gerais e começou a cultivar seus próprios alimentos com muito carinho e respeito à terra. O frescor e a qualidade dos produtos logo atraíram amigos e vizinhos, e o boca a boca fez o negócio crescer. Com o tempo, a paixão pela agricultura se transformou em uma empresa, mantendo sempre a essência da roça e os valores de qualidade e proximidade com os clientes. Hoje, a Hortifruti Da Roça é sinônimo de frescor e confiança, levando o melhor do campo para a mesa de seus clientes.
+            A Da Roça nasceu de uma família mineira tradicional, que herdou uma fazenda no interior de Minas Gerais e começou a cultivar seus próprios alimentos com muito carinho e respeito à terra. O frescor e a qualidade dos produtos logo atraíram amigos e vizinhos, e o boca a boca fez o negócio crescer. Com o tempo, a paixão pela agricultura se transformou em uma empresa, mantendo sempre a essência da roça e os valores de qualidade e proximidade com os clientes. Hoje, a Da Roça é sinônimo de frescor e confiança, levando o melhor do campo para a mesa de seus clientes.
             </p>
 
             <div class="position-relative mt-4">
@@ -58,7 +58,7 @@
 
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
         <div class="why-box">
-            <h3>Por que escolher Nosso Hortifruti ?</h3>
+            <h3>Por que escolher Nosso Site ?</h3>
             <p>
             Escolher produtos Da Roça é optar por frescor, sabor autêntico e qualidade diretamente do campo. Nossos alimentos são cultivados com carinho e responsabilidade, seguindo práticas sustentáveis e respeitando o meio ambiente. Trabalhamos com produtores locais, garantindo produtos frescos e naturais, que preservam o sabor e os nutrientes. Além disso, ao escolher nossos produtos, você apoia o comércio justo e a economia local. Com a Da Roça, você leva para sua mesa o melhor da agricultura familiar, com a confiança de quem valoriza tradição e qualidade.
             </p>
@@ -75,7 +75,7 @@
             <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                 <i class="bi bi-clipboard-data"></i>
                 <h4>Crescimento</h4>
-                <p>A Hortifruti Da Roça começou como uma pequena produção familiar, vendendo para amigos e vizinhos. Com o tempo, o negócio cresceu, expandindo sua produção e atendimento. Hoje, somos uma empresa consolidada, mantendo o compromisso com a qualidade e o frescor dos nossos produtos.</p>
+                <p>Da Roça começou como uma pequena produção familiar, vendendo para amigos e vizinhos. Com o tempo, o negócio cresceu, expandindo sua produção e atendimento. Hoje, somos uma empresa consolidada, mantendo o compromisso com a qualidade e o frescor dos nossos produtos.</p>
             </div>
             </div><!-- End Icon Box -->
 
@@ -83,7 +83,7 @@
             <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                 <i class="bi bi-gem"></i>
                 <h4>Qualidade</h4>
-                <p>A Hortifruti Da Roça oferece produtos frescos e de qualidade, cultivados com práticas sustentáveis e sem aditivos químicos. Trabalhamos com produtores locais, garantindo alimentos saborosos e saudáveis. Nossa missão é levar o melhor do campo diretamente para sua mesa.</p>
+                <p>Da Roça oferece produtos frescos e de qualidade, cultivados com práticas sustentáveis e sem aditivos químicos. Trabalhamos com produtores locais, garantindo alimentos saborosos e saudáveis. Nossa missão é levar o melhor do campo diretamente para sua mesa.</p>
             </div>
             </div><!-- End Icon Box -->
 
@@ -91,7 +91,7 @@
             <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                 <i class="bi bi-inboxes"></i>
                 <h4>Oferta</h4>
-                <p>Na Hortifruti Da Roça, oferecemos promoções especiais e descontos exclusivos em nossos produtos frescos e de qualidade. Fique atento às nossas ofertas sazonais, que garantem preços ainda mais acessíveis. Aproveite para levar o melhor da roça para sua casa!</p>
+                <p>Da Roça, oferece promoções especiais e descontos exclusivos em nossos produtos frescos e de qualidade. Fique atento às nossas ofertas sazonais, que garantem preços ainda mais acessíveis. Aproveite para levar o melhor da roça para sua casa!</p>
             </div>
             </div><!-- End Icon Box -->
 

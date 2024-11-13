@@ -30,7 +30,7 @@ $data = $db->dbSelect("SELECT
             <h3>Lista Produtos/Serviços</h3>
         </div>
         <div class="col-2 text-end">
-            <a href="index.php?pagina=formProduto&acao=insert"
+            <a href="index.php?pagina=formProdutoFornecedor&acao=insert"
                 class="btn btn-outline-secondary btn-sm"
                 title="Nova">
                 Nova
@@ -65,9 +65,9 @@ $data = $db->dbSelect("SELECT
                         <td><?= $row['nomeFornecedor'] ?></td>
                         <td><?= ($row['statusCadastro'] == 1 ? "Ativo" : ($row['statusCadastro'] == 2 ? "Inativo" : "...")) ?></td>
                         <td>
-                            <a href="index.php?pagina=formProduto&acao=update&id=<?= $row['id'] ?>" class="btn btn-outline-primary btn-sm" title="Alteração">Alterar</a>
-                            <a href="index.php?pagina=formProduto&acao=delete&id=<?= $row['id'] ?>" class="btn btn-outline-danger btn-sm" title="Exclusão">Excluir</a>
-                            <a href="index.php?pagina=formProduto&acao=view&id=<?= $row['id'] ?>" class="btn btn-outline-secondary btn-sm" title="Visualização">Visualizar</a>
+                            <a href="index.php?pagina=formProdutoFornecedor&acao=update&id=<?= $row['id'] ?>" class="btn btn-outline-primary btn-sm" title="Alteração">Alterar</a>
+                            <a href="index.php?pagina=formProdutoFornecedor&acao=delete&id=<?= $row['id'] ?>" class="btn btn-outline-danger btn-sm" title="Exclusão">Excluir</a>
+                            <a href="index.php?pagina=formProdutoFornecedor&acao=view&id=<?= $row['id'] ?>" class="btn btn-outline-secondary btn-sm" title="Visualização">Visualizar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -12,7 +12,14 @@ if (!Funcoes::getAdministrador()) {
 
 $db = new Database();
 
-$data = $db->dbSelect("SELECT * FROM cidade ORDER BY nome");
+// Consultando a cidade com JOIN para pegar a descrição do estado (UF)
+$data = $db->dbSelect(
+    "SELECT cidade.*, uf.descricao AS uf_descricao
+     FROM cidade
+     INNER JOIN uf ON cidade.uf_id = uf.id
+     ORDER BY cidade.nome",
+    'all'
+);
 
 ?>
 
@@ -38,7 +45,7 @@ $data = $db->dbSelect("SELECT * FROM cidade ORDER BY nome");
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
-                <th>Uf_id</th>
+                <th>Estado (UF)</th>
                 <th>Status</th>
                 <th>Ação</th>
             </tr>
@@ -51,7 +58,7 @@ $data = $db->dbSelect("SELECT * FROM cidade ORDER BY nome");
                     <tr>
                         <td><?= $row['id'] ?></td>
                         <td><?= $row['nome'] ?></td>
-                        <td><?= $row['uf_id'] ?></td>
+                        <td><?= $row['uf_descricao'] ?></td>
                         <td><?= Funcoes::getStatusRegistro($row['statusRegistro']) ?></td>
                         <td>
                             <a href="index.php?pagina=formCidade&acao=update&id=<?= $row['id'] ?>" class="btn btn-outline-primary btn-sm" title="Alteração">Alterar</a>
@@ -62,7 +69,7 @@ $data = $db->dbSelect("SELECT * FROM cidade ORDER BY nome");
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="6">Nenhum registro encontrado.</td>
+                    <td colspan="5">Nenhum registro encontrado.</td>
                 </tr>
             <?php endif; ?>
 
